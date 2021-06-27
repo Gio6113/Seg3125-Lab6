@@ -1,0 +1,89 @@
+td{
+    font-size: 25px;
+}
+p{
+    font-size: 20px;
+    padding-left: 1.5em;
+}
+.btn{
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+h1{
+    font-family: 'Mate SC', sans-serif;
+    font-size: 5.5vw;
+    font-weight: 700;
+    color: rgb(53, 52, 52);
+    margin: 3%;
+    margin-top: 10%;
+    width:100%
+}
+
+.title{
+    padding-left: 3em;
+    font-weight: 500;
+    margin-top: 0%;
+}
+
+.expert{
+    border-radius: 50%;
+    width: 100%;
+    height: 100%;
+}
+
+.row {
+    margin: 1% 0 ; 
+    padding: 5%;
+    border: 1px solid; 
+    border-color: rgb(67, 67, 163);
+}
+
+h3{
+    font-size: 3.7vw;
+}
+h5{
+    font-size: 2.7vw;
+}
+
+.col-sm-7{
+    width: 60%;
+    margin:auto;
+}
+
+.col-sm-5{
+    width:40%;
+}
+
+.main{
+    /* background-attachment: fixed; */
+    background-size: 100%;
+    background-repeat: no-repeat;
+    margin: 5%;
+    margin:auto;
+}
+
+.styledbtn{
+    margin-left: 40%;
+    margin-top: 40%;
+}
+
+
+
+.table{
+    font-size: 20 !important;
+}
+
+td{
+    font-size: 2.5vw;
+}
+
+h2{
+    font-size: 4vw;
+    color: rgb(55, 55, 165) ;
+    font-weight: 700;
+}
+
+.address{
+    font-size: 4vw;
+}
