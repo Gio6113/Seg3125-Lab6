@@ -20,12 +20,12 @@ li:hover {
     color: white;
 } 
 
-td{
-    font-size: 25px;
+#Book-Appointment{
+    margin-left: 30px;
 }
 
 p{
-    font-size: 1.5vw !important;
+    font-size: 1.7vw !important;
     padding-left: 1.5em;
     color: gray;
     text-align: center;
@@ -55,23 +55,23 @@ h1{
 
 .expert{
     border-radius: 50%;
-    width: 50%;
+    width: 45%;
+   position: relative;
+   margin:auto;
 
 }
 
-
-.row2 {
-    margin: 1% 0 ;
-    padding:10px; 
-    height: 5%;
-    border: 1px solid; 
-    border-color: rgb(5, 138, 0);
+.serviceimg{
+    border-radius: 10%;
+    width: 70%;
+    max-height: 150px;
 }
+
 
 .row {
     margin: 1% 0 ;
-    padding:15px; 
-    height: 7%;
+    padding:10px; 
+    height: 6%;
     border: 1px solid; 
     border-color: rgb(67, 67, 163);
 }
@@ -82,8 +82,13 @@ h3{
     font-size: 22px;
 }
 h5{
-    font-size: 20px;
+    font-size: 16px;
 }
+
+.q{
+  box-sizing: inherit;
+}
+
 
 .col-sm-7{
     width: 60%;
@@ -100,6 +105,7 @@ h5{
     background-repeat: no-repeat;
     margin: 5%;
     margin:auto;
+    height: 30%;
 }
 
 .styledbtn{
@@ -113,9 +119,7 @@ h5{
     font-size: 20 !important;
 }
 
-td{
-    font-size: 2.5vw;
-}
+
 
 h2{
     font-size: 24px;
@@ -131,13 +135,21 @@ h2{
 }
 
 .address-box{
-    margin-top: -20%;
+    margin-top: -7.5%;
     margin-bottom: 5%;
 }
 
 .home{
     float: right;
     background-color: white;
+}
+
+.modal-header{
+    background-color: lightgreen;
+}
+
+.reset{
+    background-color: red;
 }
 
 /*FOOTER */
@@ -198,5 +210,9 @@ footer {
     z-index: -8;
     margin-left: -1%;
     background-color: black;
+  }
+
+  .btnmain{
+      background-color: green !important;
   }
   

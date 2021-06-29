@@ -9,7 +9,7 @@ function validatePhone(txtPhone) {
     var a = document.getElementById(txtPhone).value;
     // This filter asks for something like (12345), so parentheses with any number (at least 1)
     // of digits
-    var filter = /^(\([-+]?[0-9]+)\)$/;
+    var filter = /^\(\d{3}\)\s{1}\d{3}-\d{4}$/;
     if (filter.test(a)) {
         return true;
     }
@@ -18,14 +18,37 @@ function validatePhone(txtPhone) {
     }
 }
 
-function goTo(id) {
-    let destination = document.querySelector(id);
-    let yCoord = destination.offsetTop - 40;
-    window.scrollTo({
-      top: yCoord,
-      behavior: "smooth"
-    });
-  }
+function validateCVV(cvv) {
+    var a = document.getElementById(cvv).value;
+    // This filter asks for something like (12345), so parentheses with any number (at least 1)
+    // of digits
+    var filter = /\d{3}$/;
+    if (filter.test(a)) {
+        return true;
+    }
+    else {
+        return false;
+    }
+}
+
+function validateCard(cardnumber) {
+    var a = document.getElementById(cardnumber).value;
+    // This filter asks for something like (12345), so parentheses with any number (at least 1)
+    // of digits
+        var a = document.getElementById(cardnumber).value;
+        // This filter asks for something like (12345), so parentheses with any number (at least 1)
+        // of digits
+        var filter = /^\d{4}\s\d{4}\s\d{4}\s\d{4}$/;
+        if (filter.test(a)) {
+            return true;
+        }
+        else {
+            return false;
+        }
+
+}
+
+
 
 
 // Using date restrictions on datepicker
@@ -47,18 +70,20 @@ function disableDates(date) {
 // HERE, JQuery "LISTENING" starts
 $(document).ready(function(){
 
+
     // phone validation, it calls validatePhone
     // and also some feedback as an Alert + putting a value in the input that shows the format required
     // the "addClass" will use the class "error" defined in style.css and add it to the phone input
     // The "error" class in style.css defines yellow background and red foreground
-    $("#phone").on("change", function(){
-        if (!validatePhone("phone")){
-            alert("Wrong format for phone");
-            $("#phone").val("(xxxx)");
-            $("#phone").addClass("error");
+    $("#debit").on("change", function(){
+        if (!validateCard("debit")){
+            $("#debit").addClass("debit");
+            alert("Wrong format for debit card. Please include spaces between the 4 digits");
+            return false;
         }
         else {
-            $("#phone").removeClass("error");
+            $("#debit").removeClass("debit");
+            return true;
         }
     });
 
@@ -69,17 +94,7 @@ $(document).ready(function(){
 
     // Also, here is a good tutorial for playing with the datepicker in https://webkul.com/blog/jquery-datepicker/
     // Datepicker is also documented as one of the widgets here: https://api.jqueryui.com/category/widgets/
-    $( "#dateInput" ).datepicker(
-        {
-            dateFormat: setDateFormat,
-            // no calendar before June 1rst 2020
-            minDate: new Date('06/01/2020'),
-            maxDate: '+4M',
-            // used to disable some dates
-            beforeShowDay: $.datepicker.noWeekends,
-            beforeShowDay: disableDates
-        }
-    );
+  
 
 
     // Look at the different events on which an action can be performed
@@ -102,13 +117,75 @@ $(document).ready(function(){
         }
     });
 
+    $("#phone").on("change", function(){
+        if (!validatePhone("phone")){
+            alert("Wrong format for phone. Make sure to include paranthesis for area code and a space after it");
+            $("#phone").addClass("error");
+            return false;
+        }
+        else {
+            $("#phone").removeClass("error");
+            return true;
+        }
+        
+    });
+
+    $("#cvv").on("change", function(){
+        if (!validateCVV("cvv")){
+            alert("Wrong format for CVV. Only include 3 digits");
+            $("#cvv").addClass("error");
+            return false;
+        }
+        else {
+            $("#cvv").removeClass("error");
+            return true;
+        }
+        
+    });
+
+    $("#cvv").on("mouseenter", function(){
+        $("#cvv").addClass("showInput");
+    });
+
+    $("#cvv").on("mouseleave", function(){
+        $("#cvv").removeClass("showInput");
+    });
+
+    $("#cvv").tooltip({
+        classes: {
+            "ui-tooltip": "highlight"
+        }
+    });
+
+    $("#mysqldate").on("mouseenter", function(){
+        $("#mysqldate").addClass("showInput");
+    });
+
+    $("#mysqldate").on("mouseleave", function(){
+        $("#mysqldate").removeClass("showInput");
+    });
+
+    $("#mysqldate").tooltip({
+        classes: {
+            "ui-tooltip": "highlight"
+        }
+    });
+
+
     // DATE AND TIME PICKER FROM https://www.jqueryscript.net/demo/Slick-Datetime-Picker-Plugin-with-jQuery-jQuery-UI-slickDTP/
     var slickDTP = new SlickDTP();
     	
     $( "#mysqldate" ).click(function() {
     	slickDTP.pickDate('#mysqldate','#prettydate');
+        var y = document.getElementsByClassName("ui-dialog ui-corner-all ui-widget ui-widget-content ui-front ui-draggable ui-resizable");
+        var x = document.getElementsByClassName("ui-dialog-titlebar-close");
+
+        x[0].title = "";
+        x[0].innerHTML = "X";
+        y[0].classList.add("q");
+        console.log(y);
+    
+     
     });
-
-
 
 });

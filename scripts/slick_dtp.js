@@ -32,7 +32,6 @@ function SlickDTP()
 	this.current_id = "";
 	this.pretty_id = "";
 	this.builtHTML = 0; //did we already append the html 0|1
-	
 	this.buildHTML();
 	this.ready();
 }
